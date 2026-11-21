@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WILLTECH SYSTEMS — Sistemas, Catálogos e Soluções Digitais Sob Medida | Araguaína - TO</title>
+  <meta
+    name="description"
+    content="Software house e estúdio de soluções digitais sob medida em Araguaína - TO. Convites interativos, catálogos digitais com pedido no WhatsApp, formulários inteligentes, landing pages e sistemas web."
+  />
+  <meta name="theme-color" content="#0A0A0A" />
+
+  <!-- Open Graph / Compartilhamento no WhatsApp -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:title" content="WILLTECH SYSTEMS — Soluções Digitais Sob Medida" />
+  <meta
+    property="og:description"
+    content="Sistemas, catálogos digitais, formulários inteligentes e convites interativos rápidos e prontos para rodar no celular do seu cliente."
+  />
+
+  <!-- Inline Industrial SVG Favicon -->
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%230A0A0A'/%3E%3Crect x='2' y='2' width='60' height='60' rx='6' fill='none' stroke='%23262626' stroke-width='2'/%3E%3Cpath d='M13 18h8l6 22 5-16h4l5 16 6-22h8L46 46h-8l-6-18-6 18h-8L13 18z' fill='%23FFFFFF'/%3E%3Crect x='46' y='40' width='8' height='8' fill='%23FF5500'/%3E%3C/svg%3E"
+  />
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- ======================================================================
+       00. NAVBAR FIXA
+       ====================================================================== -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="#inicio" class="brand" aria-label="WILLTECH SYSTEMS — Ir para o início">
+        <span class="brand__mark" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M3 5H6.5L9.2 15.5L11.4 8.5H12.6L14.8 15.5L17.5 5H21L17 19H13.6L12 13.6L10.4 19H7L3 5Z" fill="#FFFFFF" />
+            <rect x="17.5" y="16" width="3.5" height="3.5" fill="#FF5500" />
+          </svg>
+        </span>
+        <span class="brand__text">
+          <span>WILLTECH</span>
+          <span class="brand__accent">SYSTEMS</span>
+        </span>
+      </a>
+
+      <nav class="navbar__nav" aria-label="Navegação principal">
+        <a href="#solucoes" class="navbar__link">Soluções</a>
+        <a href="#portfolio" class="navbar__link">Portfólio</a>
+        <a href="#como-funciona" class="navbar__link">Como Funciona</a>
+      </nav>
+
+      <div class="navbar__actions">
+        <a
+          id="nav-whatsapp-cta"
+          href="https://wa.me/5563992026738?text=Ol%C3%A1!%20Vi%20o%20site%20da%20WillTech%20Systems%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn--primary btn--sm navbar__cta-desktop"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+          </svg>
+          <span>WhatsApp</span>
+        </a>
+
+        <button
+          id="nav-toggle"
+          type="button"
+          class="navbar__toggle"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="Abrir menu de navegação"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="4" y1="7" x2="20" y2="7" />
+            <line x1="4" y1="12" x2="20" y2="12" />
+            <line x1="4" y1="17" x2="20" y2="17" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <nav class="mobile-menu__links" aria-label="Navegação mobile">
+      <a href="#solucoes" class="mobile-menu__link">
+        <span>Soluções</span>
+        <span class="mono" aria-hidden="true">01</span>
+      </a>
+      <a href="#portfolio" class="mobile-menu__link">
+        <span>Portfólio &amp; Demos</span>
+        <span class="mono" aria-hidden="true">02</span>
+      </a>
+      <a href="#como-funciona" class="mobile-menu__link">
+        <span>Como Funciona</span>
+        <span class="mono" aria-hidden="true">03</span>
+      </a>
+    </nav>
+    <a
+      href="https://wa.me/5563992026738?text=Ol%C3%A1!%20Vi%20o%20site%20da%20WillTech%20Systems%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn btn--primary mobile-menu__cta"
+    >
+      Solicitar Orçamento no WhatsApp
+    </a>
+  </div>
+
+  <main>
+    <!-- ====================================================================
+         01. HERO SECTION
+         ==================================================================== -->
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero__grid">
+          <div class="hero__content">
+            <p class="eyebrow">SOLUÇÕES DIGITAIS SOB MEDIDA</p>
+
+            <h1 class="hero__title">
+              Sistemas, catálogos e experiências web que <span class="hero__title-accent">vendem por você.</span>
+            </h1>
+
+            <p class="hero__subtitle">
+              Chega de links amadores, formulários sem graça ou PDFs pesados. Criamos ferramentas rápidas,
+              interativas e prontas para rodar no celular do seu cliente.
+            </p>
+
+            <div class="hero__actions">
+              <a id="hero-btn-demos" href="#portfolio" class="btn btn--primary">
+                <span>Ver Demonstrações</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <polyline points="19 12 12 19 5 12" />
+                </svg>
+              </a>
+
+              <a
+                id="hero-btn-orcamento"
+                href="https://wa.me/5563992026738?text=Ol%C3%A1!%20Vi%20o%20site%20da%20WillTech%20Systems%20e%20quero%20solicitar%20um%20or%C3%A7amento%20para%20o%20meu%20projeto."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn--secondary"
+              >
+                <span>Solicitar Orçamento</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
+              </a>
+            </div>
+
+            <div class="hero__meta-bar">
+              <div class="hero__meta-item">
+                <span class="hero__meta-label">MODELO COMERCIAL</span>
+                <span class="hero__meta-value">Projeto pronto, sem mensalidade abusiva</span>
+              </div>
+              <div class="hero__meta-item">
+                <span class="hero__meta-label">PERFORMANCE</span>
+                <span class="hero__meta-value">Abertura rápida no 4G/5G</span>
+              </div>
+              <div class="hero__meta-item">
+                <span class="hero__meta-label">BASE OPERACIONAL</span>
+                <span class="hero__meta-value">Araguaína - TO / Todo o Brasil</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Painel Diretório de Acesso Rápido -->
+          <aside class="studio-panel" aria-label="Acesso rápido por tipo de solução">
+            <div class="studio-panel__header">
+              <span class="studio-panel__code">ESTÚDIO // CATÁLOGO RÁPIDO</span>
+              <span class="studio-panel__location">ARAGUAÍNA · TO</span>
+            </div>
+
+            <div class="studio-panel__body">
+              <p class="studio-panel__prompt">Escolha o que você precisa colocar no ar:</p>
+              <div class="studio-panel__list">
+                <a href="#portfolio" class="studio-panel__item" data-jump-filter="eventos">
+                  <span class="studio-panel__item-left">
+                    <span class="studio-panel__index">01</span>
+                    <span class="studio-panel__name">Convites Interativos &amp; VIP</span>
+                  </span>
+                  <svg class="studio-panel__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </a>
+
+                <a href="#portfolio" class="studio-panel__item" data-jump-filter="comercial">
+                  <span class="studio-panel__item-left">
+                    <span class="studio-panel__index">02</span>
+                    <span class="studio-panel__name">Catálogos &amp; Cardápios no WhatsApp</span>
+                  </span>
+                  <svg class="studio-panel__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </a>
+
+                <a href="#portfolio" class="studio-panel__item" data-jump-filter="comercial">
+                  <span class="studio-panel__item-left">
+                    <span class="studio-panel__index">03</span>
+                    <span class="studio-panel__name">Formulários Inteligentes &amp; Bio Link</span>
+                  </span>
+                  <svg class="studio-panel__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </a>
+
+                <a href="#solucoes" class="studio-panel__item">
+                  <span class="studio-panel__item-left">
+                    <span class="studio-panel__index">04</span>
+                    <span class="studio-panel__name">Sistemas Sob Medida &amp; Automação</span>
+                  </span>
+                  <svg class="studio-panel__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <div class="studio-panel__footer">
+              <span>ATENDIMENTO DIRETO</span>
+              <strong>(63) 99202-6738</strong>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         02. CATÁLOGO DE SOLUÇÕES (BENTO GRID)
+         ==================================================================== -->
+    <section class="section section--bordered" id="solucoes">
+      <div class="container">
+        <div class="section__header">
+          <div class="section__header-main">
+            <p class="eyebrow">01 // CATÁLOGO DE SOLUÇÕES</p>
+            <h2 class="section__title">Ferramentas digitais feitas para funcionar na mão do cliente.</h2>
+            <p class="section__desc">
+              Cada projeto nasce com escopo objetivo, visual profissional e foco total em conversão, organização e praticidade.
+            </p>
+          </div>
+        </div>
+
+        <div class="bento-grid">
+          <!-- 01. Convites Interativos (Eventos Sociais) -->
+          <article class="bento-card bento-card--span-7 reveal">
+            <div>
+              <div class="bento-card__top">
+                <span class="bento-card__tag"><span>01</span> EVENTOS SOCIAIS</span>
+                <span class="bento-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="16" rx="2" />
+                    <path d="M3 8l9 6 9-6" />
+                  </svg>
+                </span>
+              </div>
+              <h3 class="bento-card__title">Convites Interativos (Eventos Sociais)</h3>
+              <p class="bento-card__desc">
+                Aniversários, Chás de Bebê, Casamentos e Formaturas. Experiência completa com música ambiente,
+                animação de abertura, confirmação de presença (RSVP) direta no WhatsApp, lista de presentes e
+                integração com Google Maps.
+              </p>
+              <div class="bento-card__specs">
+                <span class="spec-chip">RSVP no WhatsApp</span>
+                <span class="spec-chip">Música &amp; Abertura</span>
+                <span class="spec-chip">Google Maps</span>
+                <span class="spec-chip">Lista de Presentes</span>
+              </div>
+            </div>
+
+            <div class="bento-card__footer">
+              <a
+                href="https://wa.me/5563992026738?text=Ol%C3%A1!%20Vi%20o%20site%20da%20WillTech%20Systems%20e%20tenho%20interesse%20em%20um%20Convite%20Interativo%20para%20evento%20social."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="card-link"
+              >
+                <span>Orçar Convite Interativo</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- 02. Convites Corporativos & VIP -->
+          <article class="bento-card bento-card--span-5 reveal">
+            <div>
+              <div class="bento-card__top">
+                <span class="bento-card__tag"><span>02</span> CORPORATIVO &amp; VIP</span>
+                <span class="bento-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 15 8.5 22 9.3 17 14 18.4 21 12 17.6 5.6 21 7 14 2 9.3 9 8.5 12 2" />
+                  </svg>
+                </span>
+              </div>
+              <h3 class="bento-card__title">Convites Corporativos &amp; VIP</h3>
+              <p class="bento-card__desc">
+                Lançamentos de coleções, coquetéis de lojas, eventos empresariais e reuniões exclusivas com visual
+                sofisticado e credenciamento rápido para convidados selecionados.
+              </p>
+              <div class="bento-card__specs">
+                <span class="spec-chip">Credenciamento Rápido</span>
+                <span class="spec-chip">Visual Editorial</span>
+                <span class="spec-chip">Lista VIP</span>
+              </div>
+            </div>
+
+            <div class="bento-card__footer">
+              <a
+                href="https://wa.me/5563992026738?text=Ol%C3%A1!%20Vi%20o%20site%20da%20WillTech%20Systems%20e%20tenho%20interesse%20em%20um%20Convite%20Corporativo%20%2F%20VIP."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="card-link"
+              >
+                <span>Orçar Convite VIP</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- 03. Formulários Inteligentes -->
+          <article class="bento-card bento-card--span-5 reveal">
+            <div>
+              <div class="bento-card__top">
+                <span class="bento-card__tag"><span>03</span> CAPTAÇÃO &amp; AGENDAMENTO</span>
+                <span class="bento-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 11l3 3L22 4" />
+                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                  </svg>
+                </span>
+              </div>
+              <h3 class="bento-card__title">Formulários Inteligentes (Sem cara de Google Forms)</h3>
+              <p class="bento-card__desc">
+                Captação de leads, pesquisas de satisfação, agendamentos e orçamentos personalizados com a
+                identidade visual da empresa e envio direto para o WhatsApp ou planilha.
+              </p>
+              <div class="bento-card__specs">
+                <span class="spec-chip">Identidade da Marca</span>
+                <span class="spec-chip">Envio WhatsApp / Planilha</span>
+                <span class="spec-chip">Etapas Guiadas</span>
+              </div>
+            </div>
+
+            <div class="bento-card__footer">
+              <a
+                href="https://wa.me/5563992026738?text=Ol%C3%A1!%20Vi%20o%20site%20da%20WillTech%20Systems%20e%20tenho%20interesse%20em%20um%20Formul%C3%A1rio%20Inteligente%20personalizado."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="card-link"
+              >
+                <span>Orçar Formulário</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- 04. Catálogos & Cardápios Digitais -->
+          <article class="bento-card bento-card--span-7 reveal">
+            <div>
+              <div class="bento-card__top">
+                <span class="bento-card__tag"><span>04</span> VENDA DIRETA SEM TAXAS</span>
+                <span class="bento-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+                    <line x1="3" y1="6" x2="21" y2="6" />
+                    <path d="M16 10a4 4 0 0 1-8 0" />
+                  </svg>
+                </span>
+              </div>
+              <h3 class="bento-card__title">Catálogos &amp; Cardápios Digitais</h3>
+              <p class="bento-card__desc">
+                Vitrines interativas para lojas de roupas, cosméticos, perfumaria, delivery e prestadores de
+                serviço, com carrinho de pedidos direto no WhatsApp — sem pagar comissão nem taxas de aplicativos.
+              </p>
+              <div class="bento-card__specs">
+                <span class="spec-chip">Carrinho no WhatsApp</span>
+                <span class="spec-chip">0% Taxa por Pedido</span>
+                <span class="spec-chip">Filtros &amp; Variações</span>
+                <span class="spec-chip">Leve no Celular</span>
+              </div>
+            </div>
+
+            <div class="bento-card__footer">
+              <a
+                href="https://wa.me/5563992026738?text=Ol%C3%A1!%20Vi%20o%20site%20da%20WillTech%20Systems%20e%20tenho%20interesse%20em%20um%20Cat%C3%A1logo%20ou%20Card%C3%A1pio%20Digital."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="card-link"
+              >
+                <span>Orçar Catálogo Digital</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- 05. Landing Pages & Cartões Digitais (Bio Link Pro) -->
+          <article class="bento-card bento-card--span-6 reveal">
+            <div>
+              <div class="bento-card__top">
+                <span class="bento-card__tag"><span>05</span> CONVERSÃO &amp; PRESENÇA PRO</span>
+                <span class="bento-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="3" width="20" height="14" rx="2" />
+                    <line x1="8" y1="21" x2="16" y2="21" />
+                    <line x1="12" y1="17" x2="12" y2="21" />
+                  </svg>
+                </span>
+              </div>
+              <h3 class="bento-card__title">Landing Pages &amp; Cartões Digitais (Bio Link Pro)</h3>
+              <p class="bento-card__desc">
+                Páginas de alta conversão para tráfego pago, profissionais liberais, escritórios e clínicas,
+                substituindo os antigos cartões de visita em papel e links genéricos da bio.
+              </p>
+              <div class="bento-card__specs">
+                <span class="spec-chip">Pronto p/ Tráfego Pago</span>
+                <span class="spec-chip">Cartão Digital Interativo</span>
+                <span class="spec-chip">CTA Direto</span>
+              </div>
+            </div>
+
+            <div class="bento-card__footer">
+              <a
+                href="https://wa.me/5563992026738?text=Ol%C3%A1!%20Vi%20o%20site%20da%20WillTech%20Systems%20e%20tenho%20interesse%20em%20uma%20Landing%20Page%20ou%20Cart%C3%A3o%20Digital%20(Bio%20Link%20Pro)."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="card-link"
+              >
+                <span>Orçar Landing Page / Bio Pro</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <!-- 06. Automação & Sistemas Sob Medida -->
+          <article class="bento-card bento-card--span-6 reveal">
+            <div>
+              <div class="bento-card__top">
+                <span class="bento-card__tag"><span>06</span> ENGENHARIA SOB MEDIDA</span>
+                <span class="bento-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="4 17 10 11 4 5" />
+                    <line x1="12" y1="19" x2="20" y2="19" />
+                  </svg>
+                </span>
+              </div>
+              <h3 class="bento-card__title">Automação &amp; Sistemas Sob Medida</h3>
+              <p class="bento-card__desc">
+                Bots de atendimento no WhatsApp/Telegram, painéis de controle financeiro, emissão de Ordens de
+                Serviço (OS) e integração de processos sob medida para pequenas empresas.
+              </p>
+              <div class="bento-card__specs">
+                <span class="spec-chip">Bots WhatsApp/Telegram</span>
+                <span class="spec-chip">Ordem de Serviço (OS)</span>
+                <span class="spec-chip">Controle Financeiro</span>
+              </div>
+            </div>
+
+            <div class="bento-card__footer">
+              <a
+                href="https://wa.me/5563992026738?text=Ol%C3%A1!%20Vi%20o%20site%20da%20WillTech%20Systems%20e%20tenho%20interesse%20em%20Automa%C3%A7%C3%A3o%20ou%20Sistema%20Sob%20Medida."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="card-link"
+              >
+                <span>Orçar Sistema / Automação</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         03. PORTFÓLIO & DEMONSTRAÇÕES AO VIVO
+         ==================================================================== -->
+    <section class="section section--bordered" id="portfolio">
+      <div class="container">
+        <div class="section__header">
+          <div class="section__header-main">
+            <p class="eyebrow">02 // PORTFÓLIO &amp; DEMONSTRAÇÕES</p>
+            <h2 class="section__title">Projetos publicados e conceitos de interface.</h2>
+            <p class="section__desc">
+              Teste ao vivo as demonstrações já publicadas ou amplie os mockups comerciais para conhecer o padrão visual e técnico das entregas.
+            </p>
+          </div>
+
+          <div class="portfolio-controls" role="tablist" aria-label="Filtrar portfólio por categoria">
+            <button
+              id="filter-todos"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              class="filter-tab is-active"
+              data-filter="todos"
+            >
+              <span>Todos</span>
+              <span class="filter-tab__count">06</span>
+            </button>
+            <button
+              id="filter-eventos"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              class="filter-tab"
+              data-filter="eventos"
+            >
+              <span>Eventos</span>
+              <span class="filter-tab__count">03</span>
+            </button>
+            <button
+              id="filter-comercial"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              class="filter-tab"
+              data-filter="comercial"
+            >
+              <span>Comercial &amp; Sistemas</span>
+              <span class="filter-tab__count">03</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="portfolio-grid" id="portfolio-grid">
+          <!-- DEMO REAL 01: Convite Jardim Encantado (Ágatha - 1 Ano) -->
+          <article class="project-card reveal" data-category="eventos">
+            <div class="project-card__media">
+              <img
+                src="assets/images/convite-agatha.jpg"
+                alt="Preview mobile do Convite Interativo Jardim Encantado — Ágatha 1 Ano"
+                class="project-card__img"
+                width="1280"
+                height="714"
+                decoding="async"
+              />
+              <div class="project-card__media-overlay">
+                <span class="status-tag status-tag--live">Demo ao Vivo</span>
+                <span class="category-tag">Eventos Sociais</span>
+              </div>
+            </div>
+
+            <div class="project-card__body">
+              <h3 class="project-card__title">Convite Jardim Encantado (Ágatha - 1 Ano)</h3>
+              <p class="project-card__desc">
+                Convite web interativo construído para abertura rápida no celular: capa animada, música ambiente,
+                confirmação de presença (RSVP), lista de sugestões e mapa do evento em um único link.
+              </p>
+
+              <div class="demo-privacy-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+                <span>Ambiente de Demonstração — Dados e contatos fictícios para proteção dos clientes</span>
+              </div>
+
+              <div class="project-card__actions">
+                <a
+                  id="demo-agatha-live"
+                  href="https://willtechsystems.github.io/Convite_Agatha/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--primary btn--sm"
+                >
+                  <span>Testar ao Vivo</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
+                <a
+                  href="https://wa.me/5563992026738?text=Ol%C3%A1!%20Vi%20a%20demonstra%C3%A7%C3%A3o%20do%20Convite%20Jardim%20Encantado%20no%20portf%C3%B3lio%20da%20WillTech%20Systems%20e%20quero%20um%20convite%20interativo%20para%20meu%20evento."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--ghost btn--sm"
+                >
+                  <span>Quero um Igual</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- DEMO REAL 02: Convite Chá de Bebê (Yan Levi) -->
+          <article class="project-card reveal" data-category="eventos">
+            <div class="project-card__media">
+              <img
+                src="assets/images/convite-yan-levi.jpg"
+                alt="Preview mobile do Convite Interativo Chá de Bebê — Yan Levi"
+                class="project-card__img"
+                width="1280"
+                height="714"
+                decoding="async"
+              />
+              <div class="project-card__media-overlay">
+                <span class="status-tag status-tag--live">Demo ao Vivo</span>
+                <span class="category-tag">Eventos Sociais</span>
+              </div>
+            </div>
+
+            <div class="project-card__body">
+              <h3 class="project-card__title">Convite Chá de Bebê (Yan Levi)</h3>
+              <p class="project-card__desc">
+                Layout leve e acolhedor desenhado sob medida para compartilhamento direto no WhatsApp, reunindo
+                confirmação de presença, atalho de localização e lista de mimos sem depender de arquivos PDF pesados.
+              </p>
+
+              <div class="demo-privacy-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+                <span>Ambiente de Demonstração — Dados e contatos fictícios para proteção dos clientes</span>
+              </div>
+
+              <div class="project-card__actions">
+                <a
+                  id="demo-yan-levi-live"
+                  href="https://willtechsystems.github.io/Convite_Yan_Levi/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--primary btn--sm"
+                >
+                  <span>Testar ao Vivo</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
+                <a
+                  href="https://wa.me/5563992026738?text=Ol%C3%A1!%20Vi%20a%20demonstra%C3%A7%C3%A3o%20do%20Convite%20Ch%C3%A1%20de%20Beb%C3%AA%20no%20portf%C3%B3lio%20da%20WillTech%20Systems%20e%20quero%20um%20or%C3%A7amento."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--ghost btn--sm"
+                >
+                  <span>Quero um Igual</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CONCEITO 03: Convite VIP Lançamento de Perfumaria/Cosméticos -->
+          <article class="project-card reveal" data-category="eventos">
+            <div class="project-card__media">
+              <img
+                src="assets/images/convite-vip-perfumaria.jpg"
+                alt="Mockup de Convite VIP luxuoso preto e dourado para lançamento de perfumaria e cosméticos"
+                class="project-card__img"
+                width="1280"
+                height="714"
+                decoding="async"
+              />
+              <div class="project-card__media-overlay">
+                <span class="status-tag status-tag--concept">Mockup Conceitual</span>
+                <span class="category-tag">Corporativo &amp; VIP</span>
+              </div>
+              <button
+                type="button"
+                class="project-card__zoom-trigger"
+                aria-label="Ampliar mockup do Convite VIP Lançamento de Perfumaria e Cosméticos"
+                data-open-mockup
+                data-mockup-src="assets/images/convite-vip-perfumaria.jpg"
+                data-mockup-alt="Mockup de Convite VIP preto e dourado para lançamento de perfumaria e cosméticos"
+                data-mockup-tag="CONCEITO // CORPORATIVO &amp; VIP"
+                data-mockup-title="Convite VIP Lançamento de Perfumaria &amp; Cosméticos"
+                data-mockup-desc="Estética preto e dourado pensada para lançamentos de coleções, coquetéis de lojas e eventos exclusivos com credenciamento instantâneo."
+                data-mockup-wa="Olá! Vi o conceito de Convite VIP no portfólio da WillTech Systems e tenho interesse em um projeto para meu evento."
+              >
+                <span class="zoom-hint">Ampliar Interface</span>
+              </button>
+            </div>
+
+            <div class="project-card__body">
+              <h3 class="project-card__title">Convite VIP — Lançamento de Perfumaria &amp; Cosméticos</h3>
+              <p class="project-card__desc">
+                Direção de arte luxuosa em preto e dourado para coquetéis, lançamentos de linha e encontros de
+                marca, com credenciamento direto para a lista de convidados VIP.
+              </p>
+
+              <div class="project-card__actions">
+                <button
+                  id="mockup-btn-vip"
+                  type="button"
+                  class="btn btn--secondary btn--sm"
+                  data-open-mockup
+                  data-mockup-src="assets/images/convite-vip-perfumaria.jpg"
+                  data-mockup-alt="Mockup de Convite VIP preto e dourado para lançamento de perfumaria e cosméticos"
+                  data-mockup-tag="CONCEITO // CORPORATIVO &amp; VIP"
+                  data-mockup-title="Convite VIP Lançamento de Perfumaria &amp; Cosméticos"
+                  data-mockup-desc="Estética preto e dourado pensada para lançamentos de coleções, coquetéis de lojas e eventos exclusivos com credenciamento instantâneo."
+                  data-mockup-wa="Olá! Vi o conceito de Convite VIP no portfólio da WillTech Systems e tenho interesse em um projeto para meu evento."
+                >
+                  <span>Ampliar Mockup</span>
+                </button>
+                <a
+                  href="https://wa.me/5563992026738?text=Ol%C3%A1!%20Vi%20o%20portf%C3%B3lio%20da%20WillTech%20Systems%20e%20tenho%20interesse%20em%20um%20Convite%20Corporativo%20VIP."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--primary btn--sm"
+                >
+                  <span>Solicitar Orçamento</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CONCEITO 04: Catálogo Digital Interativo com Pedido no WhatsApp -->
+          <article class="project-card reveal" data-category="comercial">
+            <div class="project-card__media">
+              <img
+                src="assets/images/catalogo-digital-moda.jpg"
+                alt="Mockup de Catálogo Digital Interativo para loja de moda com carrinho direto no WhatsApp"
+                class="project-card__img"
+                width="1280"
+                height="714"
+                decoding="async"
+              />
+              <div class="project-card__media-overlay">
+                <span class="status-tag status-tag--concept">Mockup Conceitual</span>
+                <span class="category-tag">Catálogo Digital</span>
+              </div>
+              <button
+                type="button"
+                class="project-card__zoom-trigger"
+                aria-label="Ampliar mockup do Catálogo Digital Interativo com Pedido no WhatsApp"
+                data-open-mockup
+                data-mockup-src="assets/images/catalogo-digital-moda.jpg"
+                data-mockup-alt="Mockup de Catálogo Digital Interativo para loja de moda com pedido no WhatsApp"
+                data-mockup-tag="CONCEITO // CATÁLOGO DIGITAL"
+                data-mockup-title="Catálogo Digital Interativo com Pedido no WhatsApp"
+                data-mockup-desc="Vitrine mobile-first para lojas de roupas, cosméticos e varejo: seleção de tamanhos, resumo do carrinho e fechamento direto no WhatsApp sem taxas de marketplace."
+                data-mockup-wa="Olá! Vi o portfólio da WillTech Systems e tenho interesse em um Catálogo Digital com pedido no WhatsApp."
+              >
+                <span class="zoom-hint">Ampliar Interface</span>
+              </button>
+            </div>
+
+            <div class="project-card__body">
+              <h3 class="project-card__title">Catálogo Digital Interativo com Pedido no WhatsApp</h3>
+              <p class="project-card__desc">
+                Vitrine sob medida para lojas de varejo, moda e cosméticos. O cliente navega por categorias,
+                escolhe tamanho e envia o pedido já resumido no WhatsApp da loja — sem comissão por venda.
+              </p>
+
+              <div class="project-card__actions">
+                <button
+                  id="mockup-btn-catalogo"
+                  type="button"
+                  class="btn btn--secondary btn--sm"
+                  data-open-mockup
+                  data-mockup-src="assets/images/catalogo-digital-moda.jpg"
+                  data-mockup-alt="Mockup de Catálogo Digital Interativo para loja de moda com pedido no WhatsApp"
+                  data-mockup-tag="CONCEITO // CATÁLOGO DIGITAL"
+                  data-mockup-title="Catálogo Digital Interativo com Pedido no WhatsApp"
+                  data-mockup-desc="Vitrine mobile-first para lojas de roupas, cosméticos e varejo: seleção de tamanhos, resumo do carrinho e fechamento direto no WhatsApp sem taxas de marketplace."
+                  data-mockup-wa="Olá! Vi o portfólio da WillTech Systems e tenho interesse em um Catálogo Digital com pedido no WhatsApp."
+                >
+                  <span>Ampliar Mockup</span>
+                </button>
+                <a
+                  href="https://wa.me/5563992026738?text=Ol%C3%A1!%20Vi%20o%20portf%C3%B3lio%20da%20WillTech%20Systems%20e%20tenho%20interesse%20em%20um%20Cat%C3%A1logo%20Digital."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--primary btn--sm"
+                >
+                  <span>Solicitar Orçamento</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CONCEITO 05: Formulário Personalizado de Orçamento/Agendamento -->
+          <article class="project-card reveal" data-category="comercial">
+            <div class="project-card__media">
+              <img
+                src="assets/images/formulario-inteligente.jpg"
+                alt="Mockup de Formulário Personalizado de Orçamento e Agendamento em desktop e smartphone"
+                class="project-card__img"
+                width="1280"
+                height="714"
+                decoding="async"
+              />
+              <div class="project-card__media-overlay">
+                <span class="status-tag status-tag--concept">Mockup Conceitual</span>
+                <span class="category-tag">Formulário Inteligente</span>
+              </div>
+              <button
+                type="button"
+                class="project-card__zoom-trigger"
+                aria-label="Ampliar mockup do Formulário Personalizado de Orçamento e Agendamento"
+                data-open-mockup
+                data-mockup-src="assets/images/formulario-inteligente.jpg"
+                data-mockup-alt="Mockup de Formulário Personalizado de Orçamento e Agendamento"
+                data-mockup-tag="CONCEITO // FORMULÁRIO INTELIGENTE"
+                data-mockup-title="Formulário Personalizado de Orçamento &amp; Agendamento"
+                data-mockup-desc="Interface guiada em etapas com a identidade visual da sua empresa, seleção visual de serviços e horários — zero cara de Google Forms e envio direto para WhatsApp ou planilha."
+                data-mockup-wa="Olá! Vi o portfólio da WillTech Systems e tenho interesse em um Formulário Inteligente personalizado."
+              >
+                <span class="zoom-hint">Ampliar Interface</span>
+              </button>
+            </div>
+
+            <div class="project-card__body">
+              <h3 class="project-card__title">Formulário Personalizado de Orçamento &amp; Agendamento</h3>
+              <p class="project-card__desc">
+                Experiência limpa em etapas com barra de progresso, escolha de serviço, data e horário — passa
+                credibilidade imediata ao cliente e organiza os dados prontos no seu WhatsApp ou planilha.
+              </p>
+
+              <div class="project-card__actions">
+                <button
+                  id="mockup-btn-formulario"
+                  type="button"
+                  class="btn btn--secondary btn--sm"
+                  data-open-mockup
+                  data-mockup-src="assets/images/formulario-inteligente.jpg"
+                  data-mockup-alt="Mockup de Formulário Personalizado de Orçamento e Agendamento"
+                  data-mockup-tag="CONCEITO // FORMULÁRIO INTELIGENTE"
+                  data-mockup-title="Formulário Personalizado de Orçamento &amp; Agendamento"
+                  data-mockup-desc="Interface guiada em etapas com a identidade visual da sua empresa, seleção visual de serviços e horários — zero cara de Google Forms e envio direto para WhatsApp ou planilha."
+                  data-mockup-wa="Olá! Vi o portfólio da WillTech Systems e tenho interesse em um Formulário Inteligente personalizado."
+                >
+                  <span>Ampliar Mockup</span>
+                </button>
+                <a
+                  href="https://wa.me/5563992026738?text=Ol%C3%A1!%20Vi%20o%20portf%C3%B3lio%20da%20WillTech%20Systems%20e%20tenho%20interesse%20em%20um%20Formul%C3%A1rio%20Inteligente%20de%20or%C3%A7amento%20ou%20agendamento."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--primary btn--sm"
+                >
+                  <span>Solicitar Orçamento</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CONCEITO 06: Painel de Gestão / Ordem de Serviço Web -->
+          <article class="project-card reveal" data-category="comercial">
+            <div class="project-card__media">
+              <img
+                src="assets/images/painel-ordem-servico.jpg"
+                alt="Mockup de Painel de Gestão e Ordem de Serviço Web com interface escura e detalhes em laranja"
+                class="project-card__img"
+                width="1280"
+                height="714"
+                decoding="async"
+              />
+              <div class="project-card__media-overlay">
+                <span class="status-tag status-tag--concept">Mockup Conceitual</span>
+                <span class="category-tag">Sistema Web</span>
+              </div>
+              <button
+                type="button"
+                class="project-card__zoom-trigger"
+                aria-label="Ampliar mockup do Painel de Gestão e Ordem de Serviço Web"
+                data-open-mockup
+                data-mockup-src="assets/images/painel-ordem-servico.jpg"
+                data-mockup-alt="Mockup de Painel de Gestão e Ordem de Serviço Web"
+                data-mockup-tag="CONCEITO // SISTEMA SOB MEDIDA"
+                data-mockup-title="Painel de Gestão &amp; Ordem de Serviço (OS) Web"
+                data-mockup-desc="Aplicação web técnica para pequenas empresas e assistências controlarem Ordens de Serviço, clientes, status de execução e faturamento em um só painel."
+                data-mockup-wa="Olá! Vi o portfólio da WillTech Systems e tenho interesse em um Sistema Web ou Painel de Ordem de Serviço."
+              >
+                <span class="zoom-hint">Ampliar Interface</span>
+              </button>
+            </div>
+
+            <div class="project-card__body">
+              <h3 class="project-card__title">Painel de Gestão &amp; Ordem de Serviço (OS) Web</h3>
+              <p class="project-card__desc">
+                Interface técnica escura com alto contraste para emissão e acompanhamento de Ordens de Serviço,
+                histórico de clientes e visão clara de faturamento — direto no navegador, sem planilhas confusas.
+              </p>
+
+              <div class="project-card__actions">
+                <button
+                  id="mockup-btn-painel"
+                  type="button"
+                  class="btn btn--secondary btn--sm"
+                  data-open-mockup
+                  data-mockup-src="assets/images/painel-ordem-servico.jpg"
+                  data-mockup-alt="Mockup de Painel de Gestão e Ordem de Serviço Web"
+                  data-mockup-tag="CONCEITO // SISTEMA SOB MEDIDA"
+                  data-mockup-title="Painel de Gestão &amp; Ordem de Serviço (OS) Web"
+                  data-mockup-desc="Aplicação web técnica para pequenas empresas e assistências controlarem Ordens de Serviço, clientes, status de execução e faturamento em um só painel."
+                  data-mockup-wa="Olá! Vi o portfólio da WillTech Systems e tenho interesse em um Sistema Web ou Painel de Ordem de Serviço."
+                >
+                  <span>Ampliar Mockup</span>
+                </button>
+                <a
+                  href="https://wa.me/5563992026738?text=Ol%C3%A1!%20Vi%20o%20portf%C3%B3lio%20da%20WillTech%20Systems%20e%20tenho%20interesse%20em%20um%20Sistema%20Web%20de%20Gest%C3%A3o%20%2F%20Ordem%20de%20Servi%C3%A7o."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--primary btn--sm"
+                >
+                  <span>Solicitar Orçamento</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         04. COMO FUNCIONA & DIFERENCIAIS (SEÇÃO DE RESPIRO CLARA #F4F4F5)
+         ==================================================================== -->
+    <section class="section section--light" id="como-funciona">
+      <div class="container">
+        <div class="section__header">
+          <div class="section__header-main">
+            <p class="eyebrow eyebrow--light">03 // PROCESSO DIRETO</p>
+            <h2 class="section__title section__title--light">Como tiramos seu projeto do papel.</h2>
+            <p class="section__desc section__desc--light">
+              Sem reuniões intermináveis nem jargão complicado. Do primeiro contato ao link publicado em três etapas claras.
+            </p>
+          </div>
+        </div>
+
+        <div class="process-grid">
+          <article class="process-card reveal">
+            <p class="process-card__step">ETAPA 01 // ALINHAMENTO</p>
+            <h3 class="process-card__title">Conversa rápida no WhatsApp</h3>
+            <p class="process-card__desc">
+              Você explica seu objetivo, envia referências ou identidade visual e definimos exatamente o escopo, o prazo e o investimento.
+            </p>
+          </article>
+
+          <article class="process-card reveal">
+            <p class="process-card__step">ETAPA 02 // CONSTRUÇÃO</p>
+            <h3 class="process-card__title">Design e código sob medida</h3>
+            <p class="process-card__desc">
+              Desenvolvemos a interface limpa e responsiva, com validações rápidas para garantir que cada detalhe fique com a cara da sua marca ou evento.
+            </p>
+          </article>
+
+          <article class="process-card reveal">
+            <p class="process-card__step">ETAPA 03 // PUBLICAÇÃO</p>
+            <h3 class="process-card__title">Link no ar pronto para vender</h3>
+            <p class="process-card__desc">
+              Entregamos o projeto publicado, testado no celular e no computador, pronto para divulgar no WhatsApp, Instagram ou anúncios.
+            </p>
+          </article>
+        </div>
+
+        <!-- Diferenciais: Por que fechar com a WillTech? -->
+        <div class="differentials-block" id="diferenciais">
+          <div class="differentials-header">
+            <p class="eyebrow eyebrow--light">04 // DIFERENCIAIS</p>
+            <h2 class="section__title section__title--light">Por que fechar com a WillTech?</h2>
+          </div>
+
+          <div class="differentials-grid">
+            <article class="diff-card reveal">
+              <div class="diff-card__header">
+                <span class="diff-card__num">01 // TRANSPARÊNCIA</span>
+                <svg class="diff-card__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                  <line x1="12" y1="1" x2="12" y2="23" />
+                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                </svg>
+              </div>
+              <h3 class="diff-card__title">Sem mensalidades abusivas</h3>
+              <p class="diff-card__desc">
+                Você paga pelo projeto pronto. Sem ficar refém de assinaturas caras ou taxas escondidas por cada venda recebida no seu WhatsApp.
+              </p>
+            </article>
+
+            <article class="diff-card reveal">
+              <div class="diff-card__header">
+                <span class="diff-card__num">02 // VELOCIDADE</span>
+                <svg class="diff-card__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                </svg>
+              </div>
+              <h3 class="diff-card__title">100% pensado para abrir rápido no 4G/5G</h3>
+              <p class="diff-card__desc">
+                Código leve, assets otimizados e navegação mobile-first. Seu cliente ou convidado abre o link direto do WhatsApp sem travamentos.
+              </p>
+            </article>
+
+            <article class="diff-card reveal">
+              <div class="diff-card__header">
+                <span class="diff-card__num">03 // IDENTIDADE</span>
+                <svg class="diff-card__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                  <rect x="3" y="3" width="7" height="7" />
+                  <rect x="14" y="3" width="7" height="7" />
+                  <rect x="14" y="14" width="7" height="7" />
+                  <rect x="3" y="14" width="7" height="7" />
+                </svg>
+              </div>
+              <h3 class="diff-card__title">Personalização total com a marca do cliente</h3>
+              <p class="diff-card__desc">
+                Nada de template genérico com marca d'água de plataforma gratuita. Paleta, tipografia, fluxo e textos feitos sob medida para você.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         05. CTA FINAL
+         ==================================================================== -->
+    <section class="cta-section" id="contato">
+      <div class="container">
+        <div class="cta-box reveal">
+          <div>
+            <p class="eyebrow">ORÇAMENTO SEM BUROCRACIA</p>
+            <h2 class="cta-box__title">Pronto para tirar sua ideia do papel?</h2>
+            <p class="cta-box__desc">
+              Envie uma mensagem direta no WhatsApp contando qual solução você precisa — convite interativo,
+              catálogo digital, formulário ou sistema web — e receba uma proposta objetiva.
+            </p>
+          </div>
+
+          <div class="cta-box__actions">
+            <a
+              id="final-whatsapp-cta"
+              href="https://wa.me/5563992026738?text=Ol%C3%A1!%20Vi%20o%20site%20da%20WillTech%20Systems%20e%20quero%20tirar%20um%20projeto%20do%20papel."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn--primary"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+              </svg>
+              <span>Falar no WhatsApp</span>
+            </a>
+
+            <a
+              id="final-email-cta"
+              href="mailto:willtech2003@gmail.com?subject=Or%C3%A7amento%20-%20WillTech%20Systems"
+              class="btn btn--secondary"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              <span>willtech2003@gmail.com</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======================================================================
+       RODAPÉ
+       ====================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div>
+          <a href="#inicio" class="brand" aria-label="WILLTECH SYSTEMS">
+            <span class="brand__mark" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M3 5H6.5L9.2 15.5L11.4 8.5H12.6L14.8 15.5L17.5 5H21L17 19H13.6L12 13.6L10.4 19H7L3 5Z" fill="#FFFFFF" />
+                <rect x="17.5" y="16" width="3.5" height="3.5" fill="#FF5500" />
+              </svg>
+            </span>
+            <span class="brand__text">
+              <span>WILLTECH</span>
+              <span class="brand__accent">SYSTEMS</span>
+            </span>
+          </a>
+          <p class="footer__tagline">
+            Software house e estúdio de soluções digitais sob medida em Araguaína - TO. Ferramentas web rápidas,
+            diretas e desenhadas para resultado comercial.
+          </p>
+        </div>
+
+        <div>
+          <p class="footer__heading">Navegação</p>
+          <ul class="footer__list">
+            <li><a href="#solucoes" class="footer__link">Catálogo de Soluções</a></li>
+            <li><a href="#portfolio" class="footer__link">Portfólio &amp; Demos ao Vivo</a></li>
+            <li><a href="#como-funciona" class="footer__link">Como Funciona</a></li>
+            <li><a href="#diferenciais" class="footer__link">Diferenciais</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer__heading">Contato Direto</p>
+          <ul class="footer__list">
+            <li>
+              <a
+                href="https://wa.me/5563992026738?text=Ol%C3%A1!%20Entrei%20em%20contato%20pelo%20site%20da%20WillTech%20Systems."
+                target="_blank"
+                rel="noopener noreferrer"
+                class="footer__link"
+              >
+                <span>WhatsApp: (63) 99202-6738</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:willtech2003@gmail.com" class="footer__link">
+                <span>E-mail: willtech2003@gmail.com</span>
+              </a>
+            </li>
+            <li>
+              <span class="footer__link">Araguaína — Tocantins, Brasil</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>© 2026 WILLTECH SYSTEMS — Desenvolvido por Willyamar Santos | Araguaína - TO</p>
+        <p><strong>HTML5 · CSS3 · JS VANILLA</strong></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================================
+       MODAL LIGHTBOX PARA MOCKUPS CONCEITUAIS
+       ====================================================================== -->
+  <div
+    class="modal"
+    id="mockup-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-hidden="true"
+    aria-labelledby="modal-title"
+  >
+    <div class="modal__backdrop" id="modal-backdrop"></div>
+    <div class="modal__dialog">
+      <div class="modal__header">
+        <div class="modal__meta">
+          <span class="modal__tag" id="modal-tag">CONCEITO</span>
+          <h3 class="modal__title" id="modal-title">Visualização de Projeto</h3>
+        </div>
+        <button
+          type="button"
+          class="modal__close"
+          id="modal-close"
+          aria-label="Fechar visualização do mockup"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal__media">
+        <img src="" alt="" id="modal-img" class="modal__img" />
+      </div>
+
+      <div class="modal__footer">
+        <p class="modal__desc" id="modal-desc"></p>
+        <a
+          id="modal-cta"
+          href="https://wa.me/5563992026738"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn--primary btn--sm"
+        >
+          <span>Solicitar Projeto Similar</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
