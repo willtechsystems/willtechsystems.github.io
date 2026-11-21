@@ -108,7 +108,6 @@
     });
   });
 
-  // Hero studio directory items that pre-filter portfolio if desired
   const quickFilterLinks = document.querySelectorAll('[data-jump-filter]');
   quickFilterLinks.forEach((link) => {
     link.addEventListener('click', () => {
@@ -120,7 +119,7 @@
   });
 
   /* ------------------------------------------------------------------------
-     4. Conceptual Mockup Lightbox Modal
+     4. Portfolio Conceptual Carousels (3 exemplos por card) + Synced Lightbox
      ------------------------------------------------------------------------ */
   const modal = document.getElementById('mockup-modal');
   const modalImg = document.getElementById('modal-img');
@@ -130,30 +129,67 @@
   const modalCta = document.getElementById('modal-cta');
   const modalCloseBtn = document.getElementById('modal-close');
   const modalBackdrop = document.getElementById('modal-backdrop');
-  const modalTriggers = document.querySelectorAll('[data-open-mockup]');
+  const modalPrevBtn = document.getElementById('modal-prev');
+  const modalNextBtn = document.getElementById('modal-next');
+  const modalSlidePills = document.getElementById('modal-slide-pills');
 
+  const carouselRegistry = new Map();
+  let activeModalCarouselId = null;
+  let activeModalSlideIndex = 0;
   let lastFocusedTrigger = null;
 
-  const openModal = (trigger) => {
-    if (!modal || !modalImg) return;
-    lastFocusedTrigger = trigger;
+  const formatTwoDigits = (n) => String(n).padStart(2, '0');
 
-    const src = trigger.dataset.mockupSrc || '';
-    const alt = trigger.dataset.mockupAlt || '';
-    const tag = trigger.dataset.mockupTag || 'PROJETO CONCEITUAL';
-    const title = trigger.dataset.mockupTitle || '';
-    const desc = trigger.dataset.mockupDesc || '';
-    const waMessage =
-      trigger.dataset.mockupWa ||
-      'Olá! Vi o portfólio da WillTech Systems e gostaria de solicitar um orçamento.';
+  const renderModalSlide = () => {
+    if (!activeModalCarouselId || !carouselRegistry.has(activeModalCarouselId)) return;
+    const state = carouselRegistry.get(activeModalCarouselId);
+    const slides = state.slides;
+    const idx = ((activeModalSlideIndex % slides.length) + slides.length) % slides.length;
+    activeModalSlideIndex = idx;
 
-    modalImg.src = src;
-    modalImg.alt = alt;
-    if (modalTag) modalTag.textContent = tag;
-    if (modalTitle) modalTitle.textContent = title;
-    if (modalDesc) modalDesc.textContent = desc;
-    if (modalCta) modalCta.href = buildWhatsAppUrl(waMessage);
+    const slide = slides[idx];
+    if (modalImg) {
+      modalImg.src = slide.src;
+      modalImg.alt = slide.alt;
+    }
+    if (modalTag) {
+      modalTag.textContent = `${slide.tag} · ${formatTwoDigits(idx + 1)}/${formatTwoDigits(slides.length)}`;
+    }
+    if (modalTitle) modalTitle.textContent = slide.title;
+    if (modalDesc) modalDesc.textContent = slide.desc;
+    if (modalCta) modalCta.href = buildWhatsAppUrl(slide.wa);
 
+    const hasMultiple = slides.length > 1;
+    if (modalPrevBtn) modalPrevBtn.hidden = !hasMultiple;
+    if (modalNextBtn) modalNextBtn.hidden = !hasMultiple;
+
+    if (modalSlidePills) {
+      modalSlidePills.innerHTML = '';
+      if (hasMultiple) {
+        slides.forEach((s, i) => {
+          const pill = document.createElement('button');
+          pill.type = 'button';
+          pill.className = `modal__slide-pill${i === idx ? ' is-active' : ''}`;
+          pill.textContent = `${formatTwoDigits(i + 1)} · ${s.label}`;
+          pill.addEventListener('click', () => {
+            activeModalSlideIndex = i;
+            state.goTo(i);
+            renderModalSlide();
+          });
+          modalSlidePills.appendChild(pill);
+        });
+      }
+    }
+  };
+
+  const openCarouselModal = (carouselId, triggerEl) => {
+    if (!modal || !carouselRegistry.has(carouselId)) return;
+    const state = carouselRegistry.get(carouselId);
+    lastFocusedTrigger = triggerEl || null;
+    activeModalCarouselId = carouselId;
+    activeModalSlideIndex = state.index;
+
+    renderModalSlide();
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('modal-open');
@@ -165,23 +201,164 @@
     modal.classList.remove('is-open');
     modal.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('modal-open');
+    activeModalCarouselId = null;
     if (lastFocusedTrigger) {
       lastFocusedTrigger.focus();
       lastFocusedTrigger = null;
     }
   };
 
-  modalTriggers.forEach((trigger) => {
-    trigger.addEventListener('click', () => openModal(trigger));
-  });
+  if (modalPrevBtn) {
+    modalPrevBtn.addEventListener('click', () => {
+      if (!activeModalCarouselId) return;
+      const state = carouselRegistry.get(activeModalCarouselId);
+      activeModalSlideIndex = (activeModalSlideIndex - 1 + state.slides.length) % state.slides.length;
+      state.goTo(activeModalSlideIndex);
+      renderModalSlide();
+    });
+  }
+
+  if (modalNextBtn) {
+    modalNextBtn.addEventListener('click', () => {
+      if (!activeModalCarouselId) return;
+      const state = carouselRegistry.get(activeModalCarouselId);
+      activeModalSlideIndex = (activeModalSlideIndex + 1) % state.slides.length;
+      state.goTo(activeModalSlideIndex);
+      renderModalSlide();
+    });
+  }
 
   if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
   if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
 
+  // Initialize every [data-carousel] card
+  document.querySelectorAll('[data-carousel]').forEach((carouselEl) => {
+    const carouselId = carouselEl.dataset.carousel;
+    const track = carouselEl.querySelector('.carousel__track');
+    const slideEls = Array.from(carouselEl.querySelectorAll('.carousel__slide'));
+    const prevBtn = carouselEl.querySelector('.carousel__btn--prev');
+    const nextBtn = carouselEl.querySelector('.carousel__btn--next');
+    const dots = Array.from(carouselEl.querySelectorAll('.carousel__dot'));
+    const counterEl = carouselEl.querySelector('.carousel__counter');
+    const labelEl = carouselEl.querySelector('.carousel__label');
+
+    if (!carouselId || !track || slideEls.length === 0) return;
+
+    const slides = slideEls.map((el) => {
+      const img = el.querySelector('img');
+      return {
+        src: img ? img.getAttribute('src') : '',
+        alt: img ? img.getAttribute('alt') : '',
+        label: el.dataset.slideLabel || '',
+        tag: el.dataset.slideTag || 'PROJETO CONCEITUAL',
+        title: el.dataset.slideTitle || '',
+        desc: el.dataset.slideDesc || '',
+        wa:
+          el.dataset.slideWa ||
+          'Olá! Vi o portfólio da WillTech Systems e gostaria de solicitar um orçamento.',
+      };
+    });
+
+    const state = {
+      index: 0,
+      slides,
+      goTo(nextIdx) {
+        const idx = ((nextIdx % slides.length) + slides.length) % slides.length;
+        state.index = idx;
+        track.style.transform = `translateX(-${idx * 100}%)`;
+
+        dots.forEach((dot, i) => {
+          const isActive = i === idx;
+          dot.classList.toggle('is-active', isActive);
+          dot.setAttribute('aria-selected', String(isActive));
+        });
+
+        if (counterEl) {
+          counterEl.textContent = `${formatTwoDigits(idx + 1)}/${formatTwoDigits(slides.length)}`;
+        }
+        if (labelEl) {
+          labelEl.textContent = slides[idx].label;
+        }
+      },
+    };
+
+    carouselRegistry.set(carouselId, state);
+    state.goTo(0);
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        state.goTo(state.index - 1);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        state.goTo(state.index + 1);
+      });
+    }
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', (e) => {
+        e.stopPropagation();
+        state.goTo(i);
+      });
+    });
+
+    // Clicking the slide image opens the lightbox modal at the current slide
+    slideEls.forEach((slideEl) => {
+      slideEl.addEventListener('click', () => openCarouselModal(carouselId, slideEl));
+    });
+
+    // Mobile touch swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    carouselEl.addEventListener(
+      'touchstart',
+      (e) => {
+        touchStartX = e.changedTouches[0].clientX;
+      },
+      { passive: true }
+    );
+
+    carouselEl.addEventListener(
+      'touchend',
+      (e) => {
+        touchEndX = e.changedTouches[0].clientX;
+        const delta = touchStartX - touchEndX;
+        if (Math.abs(delta) > 38) {
+          state.goTo(delta > 0 ? state.index + 1 : state.index - 1);
+        }
+      },
+      { passive: true }
+    );
+  });
+
+  // "Ampliar Mockup" buttons open their card's carousel modal at the active slide
+  document.querySelectorAll('[data-open-carousel]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      openCarouselModal(btn.dataset.openCarousel, btn);
+    });
+  });
+
+  // Keyboard navigation (Escape closes modal/menu; Left/Right arrows switch modal slides)
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
       closeModal();
       setMobileMenuState(false);
+    } else if (modal && modal.classList.contains('is-open') && activeModalCarouselId) {
+      const state = carouselRegistry.get(activeModalCarouselId);
+      if (event.key === 'ArrowRight') {
+        activeModalSlideIndex = (activeModalSlideIndex + 1) % state.slides.length;
+        state.goTo(activeModalSlideIndex);
+        renderModalSlide();
+      } else if (event.key === 'ArrowLeft') {
+        activeModalSlideIndex = (activeModalSlideIndex - 1 + state.slides.length) % state.slides.length;
+        state.goTo(activeModalSlideIndex);
+        renderModalSlide();
+      }
     }
   });
 

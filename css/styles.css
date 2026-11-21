@@ -947,36 +947,154 @@ ol {
   backdrop-filter: blur(8px);
 }
 
-.project-card__zoom-trigger {
-  position: absolute;
-  inset: 0;
+/* ==========================================================================
+   Portfolio Card Carousel (3 exemplos por categoria)
+   ========================================================================== */
+
+.carousel {
+  position: relative;
   width: 100%;
   height: 100%;
+  overflow: hidden;
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.carousel__track {
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  padding: 14px;
-  background: linear-gradient(to top, rgba(10, 10, 10, 0.45) 0%, transparent 45%);
-  opacity: 0;
-  transition: opacity var(--transition-fast);
+  width: 100%;
+  height: 100%;
+  transition: transform 380ms var(--ease-out);
+  will-change: transform;
 }
 
-.project-card__media:hover .project-card__zoom-trigger,
-.project-card__zoom-trigger:focus-visible {
-  opacity: 1;
+.carousel__slide {
+  position: relative;
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
 }
 
-.zoom-hint {
+.carousel__slide .project-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.project-card:hover .carousel__slide .project-card__img {
+  transform: scale(1.02);
+}
+
+.carousel__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  background-color: rgba(10, 10, 10, 0.84);
+  border: 1px solid var(--border-strong);
+  color: var(--text-primary);
+  display: grid;
+  place-items: center;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition:
+    border-color var(--transition-fast),
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.carousel__btn:hover {
+  border-color: var(--accent);
+  background-color: rgba(10, 10, 10, 0.96);
+  color: var(--accent);
+}
+
+.carousel__btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.carousel__btn--prev {
+  left: 12px;
+}
+
+.carousel__btn--next {
+  right: 12px;
+}
+
+.carousel__btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.carousel__bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 24px 14px 12px;
+  background: linear-gradient(to top, rgba(8, 8, 8, 0.92) 0%, rgba(8, 8, 8, 0.55) 58%, transparent 100%);
+  pointer-events: none;
+}
+
+.carousel__caption {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.carousel__counter {
+  color: var(--accent);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.carousel__dots {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 7px 12px;
-  border-radius: var(--radius-sm);
-  background-color: rgba(10, 10, 10, 0.9);
-  border: 1px solid var(--accent);
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: #ffffff;
+  pointer-events: auto;
+  flex-shrink: 0;
+}
+
+.carousel__dot {
+  width: 8px;
+  height: 6px;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.34);
+  transition: width var(--transition-fast), background-color var(--transition-fast);
+}
+
+.carousel__dot:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.carousel__dot.is-active {
+  width: 22px;
+  background-color: var(--accent);
+}
+
+.project-card__media-overlay {
+  z-index: 3;
 }
 
 .project-card__body {
@@ -1368,6 +1486,7 @@ ol {
 }
 
 .modal__media {
+  position: relative;
   background-color: #080808;
   border-bottom: 1px solid var(--border-subtle);
 }
@@ -1377,6 +1496,71 @@ ol {
   max-height: 62vh;
   object-fit: contain;
   margin: 0 auto;
+}
+
+.modal__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background-color: rgba(10, 10, 10, 0.86);
+  border: 1px solid var(--border-strong);
+  color: var(--text-primary);
+  display: grid;
+  place-items: center;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.modal__nav:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.modal__nav--prev {
+  left: 14px;
+}
+
+.modal__nav--next {
+  right: 14px;
+}
+
+.modal__nav[hidden] {
+  display: none;
+}
+
+.modal__slide-pills {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background-color: #0d0d0d;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.modal__slide-pill {
+  padding: 5px 11px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  transition: border-color var(--transition-fast), color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.modal__slide-pill:hover {
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+}
+
+.modal__slide-pill.is-active {
+  border-color: var(--accent);
+  background-color: var(--accent-soft);
+  color: #ffffff;
 }
 
 .modal__footer {
