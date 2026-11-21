@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Chá de Bebê | Yan Levi</title>
+  <link rel="stylesheet" href="css/style.css?v=11.0">
+</head>
+
+<body>
+
+  <!-- ÁUDIOS DO CONVITE COM PRELOAD E LOOP ATIVADOS -->
+  <audio id="audio-fundo" loop preload="auto"></audio>
+  <audio id="audio-envelope" preload="auto"></audio>
+
+  <!-- CENÁRIO DECORATIVO LATERAL (EVIDENTE NO PC / TELAS MAIORES) -->
+  <div class="cenario-decorativo" aria-hidden="true">
+    <div class="decor-item decor-esq-topo">
+      <img src="assets/patinho_baloes.png" alt="">
+    </div>
+    <div class="decor-item decor-esq-meio">
+      <img src="assets/lacinho_fino.png" alt="">
+    </div>
+    <div class="decor-item decor-esq-base">
+      <img src="assets/patinho_guardachuva.png" alt="">
+    </div>
+
+    <div class="decor-item decor-dir-topo">
+      <img src="assets/pato_chapeu.png" alt="">
+    </div>
+    <div class="decor-item decor-dir-meio">
+      <img src="assets/lacinho_fino.png" alt="">
+    </div>
+    <div class="decor-item decor-dir-base">
+      <img src="assets/pato_botinha.png" alt="">
+    </div>
+  </div>
+
+  <main class="card-container">
+    <!-- LAÇO DECORATIVO NO TOPO DO CARD (ESTILO GINGHAM DA REFERÊNCIA) -->
+    <div class="laco-topo-wrapper">
+      <img id="img-laco-topo" src="assets/laco_topo.png" alt="Laço Decorativo">
+    </div>
+
+    <!-- LACINHOS FINOS NOS CANTOS SUPERIORES INTERNOS DO CARD -->
+    <img src="assets/lacinho_fino.png" alt="" class="canto-lacinho canto-esq" aria-hidden="true">
+    <img src="assets/lacinho_fino.png" alt="" class="canto-lacinho canto-dir" aria-hidden="true">
+
+    <!-- TELA 1: CAPA COM ENVELOPE -->
+    <div id="tela-envelope" class="secao-envelope" onclick="abrirConvite()">
+      <span class="tag-envelope">✨ CHÁ DE BEBÊ • YAN LEVI ✨</span>
+      <h2 class="titulo-envelope">Você recebeu um convite especial!</h2>
+      <p class="instrucao-envelope">Toque no envelope para abrir</p>
+
+      <!-- AVISO ANIMADO DE VOLUME ANTES DE ABRIR O ENVELOPE -->
+      <div class="aviso-som-envelope">
+        <span class="icone-som-onda" aria-hidden="true">🔊</span>
+        <span>Aumente o volume</span>
+      </div>
+
+      <div class="envelope-palco">
+        <img src="assets/patinho_baloes.png" alt="" class="patinho-capa patinho-capa-esq" aria-hidden="true">
+        <div class="envelope-wrapper">
+          <img id="img-envelope" src="assets/envelope.png" alt="Envelope do Convite">
+        </div>
+        <img src="assets/patinho_fofo.png" alt="" class="patinho-capa patinho-capa-dir" aria-hidden="true">
+      </div>
+    </div>
+
+    <!-- TELA 2: CONTEÚDO PRINCIPAL (INICIA OCULTO) -->
+    <div id="tela-principal" class="secao-principal oculto">
+      <span id="txt-subtitulo" class="subtitulo-topo">CHÁ DE BEBÊ</span>
+
+      <!-- ILUSTRAÇÃO CENTRAL: PATINHO NO BALÃO -->
+      <div class="ilustracao-central-wrapper">
+        <img id="img-tema" src="assets/patinho_balao.png" alt="Chá do Yan Levi">
+      </div>
+
+      <h1 id="txt-nome" class="nome-destaque">Yan Levi</h1>
+      <div class="divisor-ornamental" aria-hidden="true">
+        <span></span>
+        <img src="assets/lacinho_fino.png" alt="">
+        <span></span>
+      </div>
+
+      <!-- FRASE TEMÁTICA -->
+      <p id="txt-frase" class="frase-tema"></p>
+
+      <!-- DATA EM DESTAQUE ESTILO CLÁSSICO (3 COLUNAS IGUAL À REFERÊNCIA) -->
+      <div class="grade-data-classica">
+        <div class="col-data-lateral">
+          <span id="txt-dia-semana">DOMINGO</span>
+        </div>
+        <div class="col-data-centro">
+          <strong id="txt-dia-numero">13</strong>
+          <small id="txt-mes-ano">DEZEMBRO • 2026</small>
+        </div>
+        <div class="col-data-lateral">
+          <span id="txt-horario">ÀS 19:00</span>
+        </div>
+      </div>
+
+      <!-- BLOCO DE ENDEREÇO DO EVENTO (SEM PLUS CODE) -->
+      <div class="bloco-data-local">
+        <p id="txt-local" class="txt-local"></p>
+      </div>
+
+      <!-- BOTÕES DE INTERAÇÃO -->
+      <nav class="botoes-container">
+        <button class="btn btn-principal" onclick="abrirModalPresentes()">🎁 SUGESTÃO DE PRESENTES / LOJAS</button>
+        <a id="link-maps" class="btn btn-principal" target="_blank" rel="noopener noreferrer">📍 LOCALIZAÇÃO DO
+          EVENTO</a>
+        <button class="btn btn-destaque" onclick="confirmarPresenca()">✅ CONFIRMAR PRESENÇA</button>
+      </nav>
+
+      <!-- ILUSTRAÇÃO DECORATIVA NA BASE DO CARD (EVIDENTE NO CELULAR E PC, IGUAL À IMAGEM 1) -->
+      <div class="rodape-ilustracao-card" aria-hidden="true">
+        <img src="assets/patinho_guardachuva.png" alt="" class="patinho-base-lateral">
+        <img src="assets/patinho_laco.png" alt="" class="patinho-base-centro">
+        <img src="assets/patinho_fofo.png" alt="" class="patinho-base-lateral">
+      </div>
+
+      <!-- RODAPÉ DE ASSINATURA WILLTECH SYSTEMS -->
+      <footer class="rodape-dev">
+        <p>Desenvolvido por <strong>WillTech Systems</strong></p>
+        <div class="links-dev">
+          <a href="mailto:willtech2003@gmail.com">✉️ E-mail</a> |
+          <a href="https://wa.me/5563992026738?text=Ol%C3%A1%2C%20gostaria%20de%20um%20orcamento%20de%20site%2Fconvite!"
+            target="_blank" rel="noopener noreferrer">📱 WhatsApp</a>
+        </div>
+      </footer>
+    </div>
+
+  </main>
+
+  <!-- MODAL DE PRESENTES E LOJAS PARCEIRAS -->
+  <div id="modal-presentes" class="modal-overlay" onclick="fecharModalSeClicarFora(event)">
+    <div class="modal-card">
+      <img src="assets/patinho_laco.png" alt="Patinho" class="modal-icone-topo">
+      <h3>Sugestão de Presentes</h3>
+      <p class="modal-subtitulo">Exemplo de lista de presentes e lojas parceiras no ambiente de demonstração da <strong>WillTech Systems</strong>:</p>
+
+      <!-- LISTA DE LOJAS COM ENDEREÇO E MAPA -->
+      <div id="lista-lojas" class="lista-lojas"></div>
+
+      <!-- LISTA EXTRA OPCIONAL (FRALDAS / MIMOS) -->
+      <ul id="lista-presentes"></ul>
+
+      <button class="btn btn-fechar" onclick="fecharModalPresentes()">Fechar</button>
+    </div>
+  </div>
+
+  <script src="js/config.js?v=11.0"></script>
+  <script src="js/main.js?v=11.0"></script>
+</body>
+
+</html>

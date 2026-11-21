@@ -1,0 +1,739 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Dancing+Script:wght@700&family=Fredoka:wght@400;500;600;700&display=swap');
+
+:root {
+  --verde-salvia: #789269;
+  --verde-escuro: #4e6642;
+  --verde-claro: #eef3ea;
+  --borda-salvia: #9cb38e;
+  --bege-creme: #faf8f3;
+  --texto-escuro: #3e4a38;
+  --dourado-suave: #b89872;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Fredoka', system-ui, -apple-system, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* BACKGROUND XADREZ VICHY VERDE SÁLVIA (GINGHAM) */
+body {
+  background-color: #e9f0e4;
+  background-image: url('../assets/fundo.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 42px 14px 26px 14px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.oculto {
+  display: none !important;
+}
+
+/* CENÁRIO DECORATIVO EXTERNO (OCULTO POR PADRÃO NO MOBILE ESTREITO, VISÍVEL E ENFEITADO NO PC) */
+.cenario-decorativo {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.decor-item {
+  position: absolute;
+  display: none;
+  filter: drop-shadow(0 8px 18px rgba(78, 102, 66, 0.22));
+}
+
+.decor-item::before {
+  content: "";
+  position: absolute;
+  inset: -18%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.55) 48%, rgba(255, 255, 255, 0) 74%);
+  z-index: -1;
+  border-radius: 50%;
+}
+
+.decor-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* CARD PRINCIPAL COM MOLDURA DUPLA VINTAGE E LAÇO NO TOPO */
+.card-container {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  width: 100%;
+  max-width: 395px;
+  border-radius: 34px;
+  padding: 56px 20px 20px 20px;
+  text-align: center;
+  box-shadow: 
+    0 16px 40px rgba(78, 102, 66, 0.24),
+    0 4px 14px rgba(0, 0, 0, 0.06),
+    inset 0 0 0 6px #ffffff,
+    inset 0 0 0 8px rgba(156, 179, 142, 0.6),
+    inset 0 0 0 11px #ffffff,
+    inset 0 0 0 12px rgba(156, 179, 142, 0.28);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2.5px solid var(--borda-salvia);
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* LAÇO XADREZ VERDE NO TOPO DO CARD (POSICIONADO ACIMA PARA NÃO COBRIR O TEXTO) */
+.laco-topo-wrapper {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 112px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.laco-topo-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 5px 10px rgba(78, 102, 66, 0.28));
+}
+
+/* LACINHOS DELICADOS NOS CANTOS SUPERIORES DO CARD (EVIDENTES NO CELULAR E PC) */
+.canto-lacinho {
+  position: absolute;
+  top: 16px;
+  width: 44px;
+  height: auto;
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.canto-esq {
+  left: 16px;
+  transform: rotate(-14deg);
+}
+
+.canto-dir {
+  right: 16px;
+  transform: scaleX(-1) rotate(-14deg);
+}
+
+/* TELA 1: CAPA ENVELOPE */
+.secao-envelope {
+  cursor: pointer;
+  width: 100%;
+  padding-top: 8px;
+}
+
+.tag-envelope {
+  display: inline-block;
+  font-size: 0.74rem;
+  letter-spacing: 1.8px;
+  color: var(--verde-escuro);
+  background: var(--verde-claro);
+  border: 1px solid rgba(156, 179, 142, 0.5);
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.titulo-envelope {
+  color: var(--verde-escuro);
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+.instrucao-envelope {
+  color: #6c7a65;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+/* AVISO PULSANTE PARA AUMENTAR O SOM ANTES DE ABRIR O ENVELOPE */
+.aviso-som-envelope {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: var(--bege-creme);
+  border: 1.5px dashed var(--borda-salvia);
+  color: var(--verde-escuro);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(78, 102, 66, 0.1);
+  animation: pulsarAvisoSom 2.2s infinite ease-in-out;
+}
+
+.icone-som-onda {
+  display: inline-block;
+  font-size: 0.95rem;
+  animation: balancarSom 1.4s infinite ease-in-out;
+}
+
+@keyframes pulsarAvisoSom {
+  0%, 100% {
+    transform: scale(1);
+    border-color: var(--borda-salvia);
+  }
+  50% {
+    transform: scale(1.03);
+    border-color: var(--verde-salvia);
+    background: var(--verde-claro);
+  }
+}
+
+@keyframes balancarSom {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(-10deg) scale(1.12); }
+  75% { transform: rotate(10deg) scale(1.12); }
+}
+
+.envelope-palco {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 6px 0 8px 0;
+}
+
+.envelope-wrapper {
+  width: 100%;
+  max-width: 235px;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+  animation: flutuar 3s infinite ease-in-out;
+  z-index: 2;
+}
+
+.envelope-wrapper:hover {
+  transform: scale(1.03);
+}
+
+.envelope-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 10px 18px rgba(78, 102, 66, 0.28));
+}
+
+.patinho-capa {
+  position: absolute;
+  bottom: 2px;
+  height: auto;
+  z-index: 3;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 8px rgba(78, 102, 66, 0.22));
+}
+
+.patinho-capa-esq {
+  left: 2px;
+  width: 72px;
+  animation: flutuar 3.4s infinite ease-in-out;
+}
+
+.patinho-capa-dir {
+  right: 4px;
+  width: 62px;
+  animation: flutuar 3.8s infinite ease-in-out;
+}
+
+@keyframes flutuar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes flutuarLento {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1.5deg); }
+}
+
+/* TELA 2: CONTEÚDO PRINCIPAL */
+.secao-principal {
+  width: 100%;
+  animation: aparecerSuave 0.5s ease-out;
+}
+
+@keyframes aparecerSuave {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.subtitulo-topo {
+  display: inline-block;
+  font-size: 0.82rem;
+  letter-spacing: 2.8px;
+  color: var(--verde-salvia);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+/* ILUSTRAÇÃO CENTRAL DO PATINHO NO BALÃO */
+.ilustracao-central-wrapper {
+  width: 158px;
+  margin: 0 auto 2px auto;
+  animation: flutuar 3.6s infinite ease-in-out;
+}
+
+.ilustracao-central-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 6px 12px rgba(78, 102, 66, 0.16));
+}
+
+.nome-destaque {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3.15rem;
+  color: var(--verde-escuro);
+  margin: 0;
+  line-height: 1.08;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+/* DIVISOR ORNAMENTAL COM LACINHO VERDE ABAIXO DO NOME */
+.divisor-ornamental {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 2px auto 8px auto;
+  width: 75%;
+}
+
+.divisor-ornamental span {
+  flex: 1;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--borda-salvia), transparent);
+}
+
+.divisor-ornamental img {
+  width: 34px;
+  height: auto;
+  display: block;
+}
+
+/* FRASE TEMÁTICA */
+.frase-tema {
+  font-size: 0.88rem;
+  color: #56684c;
+  margin: 0 6px 12px 6px;
+  line-height: 1.44;
+  font-weight: 500;
+}
+
+/* GRADE CLÁSSICA DE DATA (ESTILO IMAGEM DE REFERÊNCIA) */
+.grade-data-classica {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 4px 6px;
+}
+
+.col-data-lateral {
+  border-top: 1.5px solid var(--borda-salvia);
+  border-bottom: 1.5px solid var(--borda-salvia);
+  padding: 7px 4px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 700;
+  font-size: 0.92rem;
+  letter-spacing: 0.8px;
+  color: var(--verde-escuro);
+}
+
+.col-data-centro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+}
+
+.col-data-centro strong {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2.5rem;
+  line-height: 0.95;
+  color: var(--verde-salvia);
+  font-weight: 700;
+}
+
+.col-data-centro small {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--dourado-suave);
+  margin-top: 3px;
+}
+
+/* BLOCO DE ENDEREÇO DO EVENTO (SEM PLUS CODE) */
+.bloco-data-local {
+  background: var(--bege-creme);
+  border: 1.5px dashed var(--borda-salvia);
+  border-radius: 16px;
+  padding: 11px 14px;
+  margin-bottom: 14px;
+  font-weight: 500;
+  color: var(--texto-escuro);
+  font-size: 0.88rem;
+  line-height: 1.42;
+}
+
+.bloco-data-local strong {
+  color: var(--verde-escuro);
+  font-size: 0.92rem;
+}
+
+/* CONTAINER DOS BOTÕES */
+.botoes-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+/* ESTILIZAÇÃO DOS BOTÕES */
+.btn {
+  display: block;
+  width: 100%;
+  border: none;
+  padding: 13px 16px;
+  border-radius: 14px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(120, 146, 105, 0.25);
+  text-align: center;
+}
+
+.btn-principal {
+  background: linear-gradient(135deg, #88a278, #6b855c);
+  color: #ffffff;
+  border: 1px solid #637d54;
+}
+
+.btn-destaque {
+  background: linear-gradient(135deg, #5e784f, #465d39);
+  color: #ffffff;
+  border: 1px solid #3c5130;
+}
+
+.btn:hover {
+  filter: brightness(1.04);
+}
+
+.btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* CENA DE PATINHOS NA BASE DO CARD (EVIDENTE NO CELULAR E PC) */
+.rodape-ilustracao-card {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 14px;
+  margin-top: 14px;
+  padding-top: 4px;
+}
+
+.patinho-base-centro {
+  width: 64px;
+  height: auto;
+  filter: drop-shadow(0 4px 8px rgba(78, 102, 66, 0.2));
+  animation: flutuar 3.2s infinite ease-in-out;
+}
+
+.patinho-base-lateral {
+  width: 52px;
+  height: auto;
+  opacity: 0.92;
+  filter: drop-shadow(0 3px 6px rgba(78, 102, 66, 0.16));
+}
+
+/* MODAL DE PRESENTES E LOJAS */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(38, 48, 34, 0.55);
+  backdrop-filter: blur(3px);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  padding: 16px;
+}
+
+.modal-card {
+  background: #ffffff;
+  padding: 22px 18px;
+  border-radius: 24px;
+  width: 100%;
+  max-width: 360px;
+  max-height: 88vh;
+  overflow-y: auto;
+  text-align: center;
+  border: 2px solid var(--borda-salvia);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.22);
+}
+
+.modal-icone-topo {
+  width: 62px;
+  height: auto;
+  margin: 0 auto 6px auto;
+  display: block;
+}
+
+.modal-card h3 {
+  color: var(--verde-escuro);
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+}
+
+.modal-subtitulo {
+  font-size: 0.84rem;
+  color: #5b6955;
+  line-height: 1.4;
+  margin-bottom: 14px;
+}
+
+.lista-lojas {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.card-loja {
+  background: var(--bege-creme);
+  border: 1.5px solid #d7e2d0;
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.loja-cabecalho {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+
+.loja-cabecalho strong {
+  color: var(--verde-escuro);
+  font-size: 0.96rem;
+}
+
+.loja-desc {
+  font-size: 0.76rem;
+  color: #788770;
+  font-weight: 500;
+}
+
+.loja-endereco {
+  font-size: 0.83rem;
+  color: var(--texto-escuro);
+  line-height: 1.35;
+  margin-bottom: 4px;
+}
+
+.loja-ref {
+  font-size: 0.78rem;
+  color: #63755a;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.btn-mapa-loja {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  background: var(--verde-claro);
+  color: var(--verde-escuro);
+  border: 1px solid var(--borda-salvia);
+  padding: 7px 10px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.btn-mapa-loja:hover {
+  background: #dfead8;
+}
+
+.modal-card ul {
+  list-style: none;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.modal-card li {
+  padding: 10px 12px;
+  background: var(--verde-claro);
+  border: 1px dashed var(--borda-salvia);
+  border-radius: 12px;
+  margin-bottom: 8px;
+  font-size: 0.86rem;
+  color: var(--verde-escuro);
+  font-weight: 700;
+}
+
+.btn-fechar {
+  background: var(--verde-salvia);
+  color: #fff;
+  margin-top: 6px;
+}
+
+/* RODAPÉ WILLTECH SYSTEMS */
+.rodape-dev {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(156, 179, 142, 0.35);
+  font-size: 0.74rem;
+  color: #777;
+  width: 100%;
+}
+
+.rodape-dev strong {
+  color: var(--verde-escuro);
+}
+
+.links-dev {
+  margin-top: 5px;
+}
+
+.links-dev a {
+  color: var(--verde-salvia);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ADAPTAÇÃO E CENÁRIO RICO PARA COMPUTADORES E TABLETS (ONDE AS LATERAIS FICAM EVIDENTES) */
+@media (min-width: 820px) {
+  body {
+    background-image: url('../assets/fundo_pc.png');
+  }
+
+  .decor-item {
+    display: block;
+  }
+
+  /* Lado Esquerdo do Card no PC */
+  .decor-esq-topo {
+    width: 165px;
+    top: 7%;
+    left: calc(50% - 430px);
+    animation: flutuarLento 4.2s infinite ease-in-out;
+  }
+
+  .decor-esq-meio {
+    width: 78px;
+    top: 47%;
+    left: calc(50% - 355px);
+    transform: rotate(-12deg);
+  }
+
+  .decor-esq-base {
+    width: 195px;
+    bottom: 6%;
+    left: calc(50% - 445px);
+    animation: flutuar 4.6s infinite ease-in-out;
+  }
+
+  /* Lado Direito do Card no PC */
+  .decor-dir-topo {
+    width: 158px;
+    top: 6%;
+    right: calc(50% - 425px);
+    animation: flutuar 4.4s infinite ease-in-out;
+  }
+
+  .decor-dir-meio {
+    width: 78px;
+    top: 47%;
+    right: calc(50% - 355px);
+    transform: scaleX(-1) rotate(-12deg);
+  }
+
+  .decor-dir-base {
+    width: 165px;
+    bottom: 6%;
+    right: calc(50% - 430px);
+    animation: flutuarLento 4s infinite ease-in-out;
+  }
+}
+
+@media (min-width: 1150px) {
+  .decor-esq-topo {
+    width: 190px;
+    left: calc(50% - 490px);
+  }
+
+  .decor-esq-meio {
+    width: 90px;
+    left: calc(50% - 395px);
+  }
+
+  .decor-esq-base {
+    width: 220px;
+    left: calc(50% - 510px);
+  }
+
+  .decor-dir-topo {
+    width: 180px;
+    right: calc(50% - 485px);
+  }
+
+  .decor-dir-meio {
+    width: 90px;
+    right: calc(50% - 395px);
+  }
+
+  .decor-dir-base {
+    width: 185px;
+    right: calc(50% - 490px);
+  }
+}
